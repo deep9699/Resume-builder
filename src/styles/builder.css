@@ -1,0 +1,8 @@
+.title {
+  font-size: 16px;
+}
+.addSkillArrBtn {
+  border-style: dashed;
+  background-color: white;
+  cursor: pointer;
+}

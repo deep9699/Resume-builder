@@ -1,0 +1,42 @@
+.center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.name {
+  font-size: 28px !important;
+  font-weight: 700 !important;
+}
+
+.details {
+  font-size: 14px;
+}
+
+.title {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.summary {
+  text-align: justify;
+  font-size: 16px;
+}
+
+.skill {
+  font-size: 16px;
+  padding-left: 15px !important;
+}
+
+.experience {
+  font-size: 16px;
+  padding-left: 15px !important;
+}
+
+.previewDoc {
+  border: 1px solid black;
+  min-height: 9.25in;
+  width: 7in;
+  margin: auto;
+  padding: 20px;
+}
