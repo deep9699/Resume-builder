@@ -15,15 +15,10 @@ export default async function handler(req, res) {
       console.log("await chromium.executablePath()", path);
 
       const browser = await puppeteer.launch({
-        args: [
-          ...chromium.args,
-          "--no-sandbox",
-          "--disable-setuid-sandbox",
-          "--window-size=1920,1080",
-        ],
+        args: chromium.args,
         defaultViewport: chromium.defaultViewport,
-        executablePath: path,
-        headless: true,
+        //executablePath: await chromium.executablePath(),
+        headless: chromium.headless,
         ignoreHTTPSErrors: true,
       });
       const page = await browser.newPage();
