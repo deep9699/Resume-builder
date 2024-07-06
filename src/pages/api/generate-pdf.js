@@ -12,8 +12,6 @@ export default async function handler(req, res) {
           "--no-sandbox",
           "--disable-setuid-sandbox",
           "--window-size=1920,1080",
-          "--single-process",
-          "--no-zygote",
         ],
         executablePath:
           process.env.NODE_ENV === "production"
