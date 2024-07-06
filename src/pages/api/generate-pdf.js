@@ -1,19 +1,30 @@
 // pages/api/generate-pdf.js
 import puppeteer from "puppeteer";
-var path = require("path");
+const chromium = require("@sparticuz/chromium");
+
+chromium.setHeadlessMode = true;
+
+chromium.setGraphicsMode = false;
 
 export default async function handler(req, res) {
   if (req.method === "POST") {
     const { html } = req.body;
 
     try {
+      const path = await chromium.executablePath();
+      console.log("await chromium.executablePath()", path);
+
       const browser = await puppeteer.launch({
         args: [
+          ...chromium.args,
           "--no-sandbox",
           "--disable-setuid-sandbox",
           "--window-size=1920,1080",
         ],
+        defaultViewport: chromium.defaultViewport,
+        executablePath: path,
         headless: true,
+        ignoreHTTPSErrors: true,
       });
       const page = await browser.newPage();
 
