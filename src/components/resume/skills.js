@@ -11,7 +11,7 @@ function Skills() {
         {skillsArr.map(({ label, skills = [] }) => {
           return (
             <li className="space-top short">
-              <b>{label} : </b>
+              {label != undefined && <b>{label} : </b>}
               <span> {skills.toString()}</span>
             </li>
           );

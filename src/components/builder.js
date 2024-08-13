@@ -6,6 +6,7 @@ import SummarySection from "./resumeBuilder/summarySection";
 import SkillsSection from "./resumeBuilder/skillsSection";
 import ExperienceSection from "./resumeBuilder/experienceSection";
 import EducationSection from "./resumeBuilder/educationSection";
+import ReArrangeSection from "./reArrangeSection";
 
 function Builder() {
   const { setShowBuilder } = useContext(BuilderContext);
@@ -23,11 +24,14 @@ function Builder() {
           </Button>
         </div>
       </div>
+      <div className="space-top space-below ">
+        <ReArrangeSection />
+      </div>
       <div
         style={{
           paddingRight: "10px",
           marginTop: "10px",
-          height: "85vh",
+          height: "83vh",
           overflow: "auto",
         }}
       >

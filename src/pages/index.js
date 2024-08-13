@@ -5,9 +5,11 @@ import BuilderContextProvider from "@/contexts/builderContextProvider";
 export default function Home() {
   return (
     <>
-      <BuilderContextProvider>
-        <BuilderLayout />
-      </BuilderContextProvider>
+      <div style={{ height: "90vh", overflow: "hidden" }}>
+        <BuilderContextProvider>
+          <BuilderLayout />
+        </BuilderContextProvider>
+      </div>
     </>
   );
 }

@@ -36,7 +36,8 @@
 .previewDoc {
   border: 1px solid black;
   min-height: 9.25in;
-  width: 7in;
+  max-width: 7in;
+  width: 90%;
   margin: auto;
   padding: 20px;
 }

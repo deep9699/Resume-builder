@@ -7,36 +7,29 @@ import Education from "./education";
 import { BuilderContext } from "@/contexts/builderContext";
 
 const ResumeDoc = () => {
-  const { summaryDesc, skillsArr, experiencesArr, educationArr } =
-    useContext(BuilderContext);
+  const contextValue = useContext(BuilderContext);
+  const { summaryDesc, skillsArr, experiencesArr, educationArr, sectionsArr } =
+    contextValue || {};
+
+  console.log("sectionsArr", sectionsArr);
+
+  const filteredSection = (sectionsArr || []).filter(
+    ({ conditionKey = "" }) =>
+      conditionKey == "" || contextValue[conditionKey].length > 0
+  );
 
   return (
     <>
-      <Header />
-      {summaryDesc && (
-        <>
-          <hr className="space-top space-below" />
-          <Summary />
-        </>
-      )}
-      {(skillsArr || []).length > 0 && (
-        <>
-          <hr className="space-top space-below" />
-          <Skills />
-        </>
-      )}
-      {(experiencesArr || []).length > 0 && (
-        <>
-          <hr className="space-top space-below" />
-          <Experience />
-        </>
-      )}
-      {(educationArr || []).length > 0 && (
-        <>
-          <hr className="space-top space-below" />
-          <Education />
-        </>
-      )}
+      {filteredSection.map(({ Component }, index) => {
+        return (
+          <>
+            <Component />
+            {index != filteredSection.length - 1 && (
+              <hr className="space-top space-below" />
+            )}
+          </>
+        );
+      })}
     </>
   );
 };

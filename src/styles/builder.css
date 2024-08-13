@@ -1,3 +1,10 @@
+.builder-drawer {
+  width: 35%;
+
+  transition: "all 1s";
+  background-color: white;
+}
+
 .title {
   font-size: 16px;
 }
@@ -5,4 +12,25 @@
   border-style: dashed;
   background-color: white;
   cursor: pointer;
+}
+
+.section-list-item {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 10px;
+  width: 100%;
+  border: 1px solid black;
+  font-size: 16px;
+}
+
+@media only screen and (max-width: 800px) {
+  .builder-drawer {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    padding: 20px;
+    z-index: 1;
+    height: 100vh !important;
+  }
 }

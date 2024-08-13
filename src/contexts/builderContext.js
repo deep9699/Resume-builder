@@ -29,4 +29,6 @@ export const BuilderContext = createContext({
   setLinkedInLink: () => {},
   portfolioLink: "",
   setPortfolioLink: () => {},
+  sectionsArr: [],
+  setSectionsArr: () => {},
 });

@@ -10,11 +10,13 @@
   },
   "dependencies": {
     "@react-pdf/renderer": "^3.4.4",
+    "@types/react-sortable-hoc": "^0.7.1",
     "antd": "^5.19.0",
     "dotenv": "^16.4.5",
     "next": "14.2.4",
     "puppeteer": "^22.12.1",
     "react": "^18",
-    "react-dom": "^18"
+    "react-dom": "^18",
+    "react-sortable-hoc": "^2.0.0"
   }
 }

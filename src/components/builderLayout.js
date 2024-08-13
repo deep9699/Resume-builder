@@ -9,9 +9,9 @@ function BuilderLayout() {
   const { showBuilder, setShowBuilder } = useContext(BuilderContext);
 
   return (
-    <div className="flex">
+    <div className="flex flex-wrap-mobile">
       {!showBuilder && (
-        <>
+        <div>
           <Button
             onClick={() => {
               setShowBuilder(true);
@@ -19,17 +19,11 @@ function BuilderLayout() {
           >
             Edit Information
           </Button>
-        </>
+        </div>
       )}
 
       {showBuilder && (
-        <div
-          style={{
-            width: "35%",
-            overflow: "auto",
-            height: "92vh",
-          }}
-        >
+        <div className="builder-drawer">
           <Builder />
         </div>
       )}
@@ -37,9 +31,11 @@ function BuilderLayout() {
       <div
         style={{
           width: showBuilder ? "65%" : "100%",
-          overflow: "auto",
-          height: "92vh",
+          height: "90vh",
+          overflowX: "hidden",
+          overflowY: "auto",
         }}
+        className={showBuilder ? "only-desktop" : ""}
       >
         <Preview />
       </div>

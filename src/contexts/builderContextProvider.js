@@ -1,5 +1,10 @@
 import React, { useState } from "react";
 import { BuilderContext } from "./builderContext";
+import Header from "@/components/resume/header";
+import Summary from "@/components/resume/summary";
+import Skills from "@/components/resume/skills";
+import Experience from "@/components/resume/experience";
+import Education from "@/components/resume/education";
 
 function BuilderContextProvider({ children }) {
   const [showBuilder, setShowBuilder] = useState(true);
@@ -70,6 +75,33 @@ function BuilderContextProvider({ children }) {
     },
   ]);
 
+  const [sectionsArr, setSectionsArr] = useState([
+    {
+      title: "Header",
+      Component: Header,
+    },
+    {
+      title: "Summary",
+      Component: Summary,
+      conditionKey: "summaryDesc",
+    },
+    {
+      title: "Skills",
+      Component: Skills,
+      conditionKey: "skillsArr",
+    },
+    {
+      title: "Experience",
+      Component: Experience,
+      conditionKey: "experiencesArr",
+    },
+    {
+      title: "Education",
+      Component: Education,
+      conditionKey: "educationArr",
+    },
+  ]);
+
   return (
     <BuilderContext.Provider
       value={{
@@ -101,6 +133,8 @@ function BuilderContextProvider({ children }) {
         setEducationTitle,
         educationArr,
         setEducationArr,
+        sectionsArr,
+        setSectionsArr,
       }}
     >
       {children}

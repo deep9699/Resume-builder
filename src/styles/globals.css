@@ -1,6 +1,7 @@
 :root {
   padding: 20px;
   font-family: Arial, Helvetica, sans-serif;
+  word-wrap: break-word;
 }
 
 /* width */
@@ -91,5 +92,22 @@
   }
   &.meduim {
     margin-right: 8px;
+  }
+}
+
+.flex-wrap-mobile {
+  flex-wrap: nowrap;
+}
+
+.only-desktop {
+  display: block;
+}
+
+@media only screen and (max-width: 800px) {
+  .flex-wrap-mobile {
+    flex-wrap: wrap;
+  }
+  .only-desktop {
+    display: none;
   }
 }

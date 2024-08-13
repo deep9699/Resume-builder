@@ -1,6 +1,6 @@
 import React, { useContext, useState } from "react";
 import { BuilderContext } from "@/contexts/builderContext";
-import { Button, Collapse, Divider, Input, Space, Tag } from "antd";
+import { Button, Collapse, Divider, Dropdown, Input, Space, Tag } from "antd";
 const { Panel } = Collapse || {};
 
 function SkillsSection() {
@@ -27,10 +27,41 @@ function SkillsSection() {
     setSkillsArr([...skillsArr]);
   };
 
-  const onClickAddSkill = () => {
-    skillsArr.push({ label: "", skills: [] });
+  const onClickAddSkill = (type) => {
+    skillsArr.push({ label: type == "plain" ? undefined : "", skills: [] });
     setSkillsArr([...skillsArr]);
   };
+
+  const addSkillItem = [
+    {
+      key: "category",
+      label: (
+        <>
+          <span
+            onClick={() => {
+              onClickAddSkill("category");
+            }}
+          >
+            Category
+          </span>
+        </>
+      ),
+    },
+    {
+      key: "non-category",
+      label: (
+        <>
+          <span
+            onClick={() => {
+              onClickAddSkill("plain");
+            }}
+          >
+            Non Category
+          </span>
+        </>
+      ),
+    },
+  ];
 
   return (
     <div>
@@ -59,17 +90,20 @@ function SkillsSection() {
                 return (
                   <>
                     <div className="flex flex-center">
-                      <Input
-                        value={label}
-                        onChange={(e) => {
-                          skillsArr[index]["label"] = e.target.value;
-                          setSkillsArr([...skillsArr]);
-                        }}
-                        style={{ width: "25%" }}
-                      />
+                      {label != undefined && (
+                        <Input
+                          value={label}
+                          onChange={(e) => {
+                            skillsArr[index]["label"] = e.target.value;
+                            setSkillsArr([...skillsArr]);
+                          }}
+                          style={{ width: "25%" }}
+                          placeholder="Category Title"
+                        />
+                      )}
                       <div
                         style={{
-                          width: "70%",
+                          width: label == undefined ? "100%" : "70%",
                           paddingLeft: "10px",
                           paddingRight: "10px",
                         }}
@@ -128,9 +162,9 @@ function SkillsSection() {
                 );
               })}
               <div className="full-width text-right">
-                <Button type="link" onClick={onClickAddSkill}>
-                  +Add Skill
-                </Button>
+                <Dropdown menu={{ items: addSkillItem }}>
+                  <Button type="link">+Add Skill</Button>
+                </Dropdown>
               </div>
             </div>
           </>
