@@ -10,7 +10,6 @@
   },
   "dependencies": {
     "@react-pdf/renderer": "^3.4.4",
-    "@types/react-sortable-hoc": "^0.7.1",
     "antd": "^5.19.0",
     "dotenv": "^16.4.5",
     "next": "14.2.4",
